@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { StrictMode, useCallback, useState } from "react";
-import { Classes, Section, CardList, SectionCard } from "@blueprintjs/core";
+import { Classes, Section, SectionCard } from "@blueprintjs/core";
 import { SearchResults } from "./components/SearchResults";
 import { DocumentContent } from "./components/DocumentContent";
 import veylorLogoLight from "./assets/VeylorLight.png";
