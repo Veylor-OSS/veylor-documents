@@ -45,7 +45,8 @@
 }
 
 .document-list {
-    width: 30em;
+    width: min-content;
+    min-width: 20em;
     border-right: 1px solid #394b59;
     overflow-y: auto;
     background-color: #293743;

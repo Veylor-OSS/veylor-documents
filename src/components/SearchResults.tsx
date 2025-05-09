@@ -10,16 +10,19 @@ interface SearchResult {
 
 interface SearchResultsProps {
   results: SearchResult[];
+  onSelectDocument: (index: number) => void;
 }
 
-export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
-  const [selectedDocumentIndex, setSelectedDocumentIndex] = useState<
-    number | null
-  >(null);
+export const SearchResults: React.FC<SearchResultsProps> = ({ 
+  results, 
+  onSelectDocument 
+}) => {
+  const [selectedDocumentIndex, setSelectedDocumentIndex] = useState<number | null>(0);
 
   const handleSelectDocument = useCallback((index: number) => {
     setSelectedDocumentIndex(index);
-  }, []);
+    onSelectDocument(index);
+  }, [onSelectDocument]);
 
   return (
     <div
