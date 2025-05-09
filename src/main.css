@@ -1,34 +1,85 @@
-html,
-body,
-#root,
 .app {
-  width: 100%;
-  height: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #252a31;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.p-07 {
+    padding: 0.7em;
+}
+
+.small-vertical-col {
+    width: 4em;
+    border-right: 1px solid #394b59;
+    padding: 0.9em;
+    padding: auto;
+    background-color: #30404d;
+}
+
+.search-text {
+    font-size: 1.3em;
+    color: #738694;
+    font-weight: 500;
+}
+
+.search-results-text {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.search-panel {
+    /* width: 30em; */
+    /* height: 5em; */
+    background-color: #182026;
+}
+
+.document-list {
+    width: 30em;
+    border-right: 1px solid #394b59;
+    overflow-y: auto;
+    background-color: #293743;
+}
+
+.content-area {
+    flex: 1;
+    /* padding: 24px; */
+    overflow-y: auto;
+    background-color: #252a31;
+}
+
+.search-results-count {
+    margin-left: 20px;
+    color: #738694;
+    font-size: 14px;
 }
 
 .app.bp5-dark {
-  /* $dark-gray2, see https://github.com/palantir/blueprint/blob/6d86a19b9e858c4cde66a253b1172dcf896872d8/packages/colors/src/_colors.scss#L13 */
-  background: #252a31;
-}
-
-.examples-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px;
+    /* $dark-gray2, see https://github.com/palantir/blueprint/blob/6d86a19b9e858c4cde66a253b1172dcf896872d8/packages/colors/src/_colors.scss#L13 */
+    background: #252a31;
 }
 
 .logo {
-  vertical-align: middle;
-  margin-right: 10px;
-  margin-top: -1px;
+    /* vertical-align: middle; */
+    margin-right: 10px;
+    margin-top: -1px;
 }
 
 .dark-theme-switch {
-  margin-bottom: 0;
-  vertical-align: baseline;
+    margin-bottom: 0;
+    vertical-align: baseline;
 }
 
 .example-datepicker {
-  display: inline-block;
+    display: inline-block;
 }

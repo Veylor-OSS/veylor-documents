@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Alignment,
-  AnchorButton,
   Classes,
   Navbar,
   NavbarGroup,
   NavbarHeading,
   NavbarDivider,
-  Switch,
+  InputGroup,
+  Button,
 } from "@blueprintjs/core";
 import veylorLogoLight from "./assets/VeylorLight.png";
 import veylorLogoDark from "./assets/VeylorDark.png";
@@ -25,34 +25,36 @@ export const Navigation: React.FC<NavigationProps> = ({
   strictMode,
   onToggleStrictMode,
 }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState(0);
+
   return (
-    <Navbar className={Classes.DARK}>
-      <NavbarGroup align={Alignment.LEFT}>
-        <NavbarHeading>
-          <img
-            src={veylorLogoLight}
-            className="logo"
-            alt="Veylor logo"
-            height={45}
-            width={45}
-          />
-          <span>Veylor Documents</span>
-        </NavbarHeading>
-        {/* <NavbarDivider />
-        <Switch
-          className="dark-theme-switch"
-          label="Dark theme"
-          checked={darkTheme}
-          onChange={onToggleDarkTheme}
+    <div style={{ borderBottom: '1px solid #394B59' }}>
+      <div style={{ display: 'flex', alignItems: 'center', padding: '16px 20px', gap: '16px' }}>
+        <img
+          src={veylorLogoLight}
+          className="logo"
+          alt="Veylor logo"
+          height={32}
+          width={32}
         />
-        <div style={{ width: 20 }} />
-        <Switch
-          className="dark-theme-switch"
-          label="React strict mode"
-          checked={strictMode}
-          onChange={onToggleStrictMode}
-        /> */}
-      </NavbarGroup>
-    </Navbar>
+        <div style={{ flex: 1, maxWidth: '600px' }}>
+          <InputGroup
+            leftIcon="search"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            rightElement={
+              <Button
+                minimal
+                icon="maximize"
+                onClick={() => {}}
+              />
+            }
+          />
+        </div>
+        <div style={{ color: '#738694', fontSize: '14px' }}>{searchResults} RESULTS</div>
+      </div>
+    </div>
   );
 };
