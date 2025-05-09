@@ -1,5 +1,13 @@
 import React, { useState, useCallback } from "react";
-import { Card, H5, Text, Colors } from "@blueprintjs/core";
+import {
+  Card,
+  H5,
+  Text,
+  Colors,
+  CardList,
+  H3,
+  Button,
+} from "@blueprintjs/core";
 
 interface SearchResult {
   title: string;
@@ -13,38 +21,49 @@ interface SearchResultsProps {
   onSelectDocument: (index: number) => void;
 }
 
-export const SearchResults: React.FC<SearchResultsProps> = ({ 
-  results, 
-  onSelectDocument 
+export const SearchResults: React.FC<SearchResultsProps> = ({
+  results,
+  onSelectDocument,
 }) => {
-  const [selectedDocumentIndex, setSelectedDocumentIndex] = useState<number | null>(0);
+  const [selectedDocumentIndex, setSelectedDocumentIndex] = useState<
+    number | null
+  >(0);
 
-  const handleSelectDocument = useCallback((index: number) => {
-    setSelectedDocumentIndex(index);
-    onSelectDocument(index);
-  }, [onSelectDocument]);
+  const handleSelectDocument = useCallback(
+    (index: number) => {
+      setSelectedDocumentIndex(index);
+      onSelectDocument(index);
+    },
+    [onSelectDocument],
+  );
 
   return (
     <div
-      className="search-results"
-      style={{ display: "flex", flexDirection: "column", gap: "0px" }}
+      style={{
+        height: "100vh",
+        overflowY: "auto",
+        paddingRight: "8px",
+        paddingBottom: "4em",
+      }}
     >
-      {results.map((result, index) => (
-        <Card
-          key={index}
-          className="search-result-card"
-          interactive
-          onClick={() => handleSelectDocument(index)}
-          style={{
-            padding: "12px",
-            backgroundColor:
-              selectedDocumentIndex === index ? Colors.BLUE3 : "transparent",
-            border: "none",
-            borderRadius: "0",
-          }}
-          elevation={0}
-        >
-          <div style={{ marginBottom: "4px" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          borderRadius: 0,
+        }}
+      >
+        {results.map((result, index) => (
+          <Card
+            key={index}
+            interactive
+            onClick={() => handleSelectDocument(index)}
+            style={{
+              borderRadius: 0,
+              backgroundColor:
+                selectedDocumentIndex === index ? Colors.BLUE3 : "transparent",
+            }}
+          >
             <H5
               style={{
                 color:
@@ -56,30 +75,32 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
             >
               {result.title}
             </H5>
-          </div>
-          <Text
-            style={{
-              color:
-                selectedDocumentIndex === index ? Colors.WHITE : Colors.GRAY3,
-              fontSize: "14px",
-            }}
-          >
-            {result.description}
-          </Text>
-          {result.modifiedDate && (
             <Text
               style={{
                 color:
-                  selectedDocumentIndex === index ? Colors.WHITE : Colors.GRAY2,
-                fontSize: "12px",
-                marginTop: "4px",
+                  selectedDocumentIndex === index ? Colors.WHITE : Colors.GRAY3,
+                fontSize: "14px",
               }}
             >
-              Modified {result.modifiedDate}
+              {result.description}
             </Text>
-          )}
-        </Card>
-      ))}
+            {result.modifiedDate && (
+              <Text
+                style={{
+                  color:
+                    selectedDocumentIndex === index
+                      ? Colors.WHITE
+                      : Colors.GRAY2,
+                  fontSize: "12px",
+                  marginTop: "4px",
+                }}
+              >
+                Modified {result.modifiedDate}
+              </Text>
+            )}
+          </Card>
+        ))}
+      </div>
     </div>
   );
 };

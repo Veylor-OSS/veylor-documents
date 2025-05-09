@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { StrictMode, useCallback, useState } from "react";
-import { Classes } from "@blueprintjs/core";
+import { Classes, Section, CardList, SectionCard } from "@blueprintjs/core";
 import { SearchResults } from "./components/SearchResults";
 import { DocumentContent } from "./components/DocumentContent";
 import veylorLogoLight from "./assets/VeylorLight.png";
@@ -24,6 +24,41 @@ function App() {
         "The three-stage liquid-fueled launch vehicle was developed to support the Apollo program for human exploration of the Moon.",
       modifiedDate: "23 hours ago",
       content: `The Saturn V was a multistage launch vehicle developed by NASA in the 1960s.
+      Standing 363 feet tall, it remains the most powerful rocket ever successfully flown.
+      It was used primarily during the Apollo missions to send astronauts to the Moon.
+      The rocket had three stages, burned liquid fuel, and generated over 7.5 million pounds of thrust at liftoff.
+      Saturn V launched a total of 13 times without a single failure.
+      The Saturn V was a multistage launch vehicle developed by NASA in the 1960s.
+      Standing 363 feet tall, it remains the most powerful rocket ever successfully flown.
+      It was used primarily during the Apollo missions to send astronauts to the Moon.
+      The rocket had three stages, burned liquid fuel, and generated over 7.5 million pounds of thrust at liftoff.
+      Saturn V launched a total of 13 times without a single failure.
+      The Saturn V was a multistage launch vehicle developed by NASA in the 1960s.
+      Standing 363 feet tall, it remains the most powerful rocket ever successfully flown.
+      It was used primarily during the Apollo missions to send astronauts to the Moon.
+      The rocket had three stages, burned liquid fuel, and generated over 7.5 million pounds of thrust at liftoff.
+      Saturn V launched a total of 13 times without a single failure.
+      The Saturn V was a multistage launch vehicle developed by NASA in the 1960s.
+      Standing 363 feet tall, it remains the most powerful rocket ever successfully flown.
+      It was used primarily during the Apollo missions to send astronauts to the Moon.
+      The rocket had three stages, burned liquid fuel, and generated over 7.5 million pounds of thrust at liftoff.
+      Saturn V launched a total of 13 times without a single failure.
+      The Saturn V was a multistage launch vehicle developed by NASA in the 1960s.
+      Standing 363 feet tall, it remains the most powerful rocket ever successfully flown.
+      It was used primarily during the Apollo missions to send astronauts to the Moon.
+      The rocket had three stages, burned liquid fuel, and generated over 7.5 million pounds of thrust at liftoff.
+      Saturn V launched a total of 13 times without a single failure.
+      The Saturn V was a multistage launch vehicle developed by NASA in the 1960s.
+      Standing 363 feet tall, it remains the most powerful rocket ever successfully flown.
+      It was used primarily during the Apollo missions to send astronauts to the Moon.
+      The rocket had three stages, burned liquid fuel, and generated over 7.5 million pounds of thrust at liftoff.
+      Saturn V launched a total of 13 times without a single failure.
+      The Saturn V was a multistage launch vehicle developed by NASA in the 1960s.
+      Standing 363 feet tall, it remains the most powerful rocket ever successfully flown.
+      It was used primarily during the Apollo missions to send astronauts to the Moon.
+      The rocket had three stages, burned liquid fuel, and generated over 7.5 million pounds of thrust at liftoff.
+      Saturn V launched a total of 13 times without a single failure.
+      The Saturn V was a multistage launch vehicle developed by NASA in the 1960s.
       Standing 363 feet tall, it remains the most powerful rocket ever successfully flown.
       It was used primarily during the Apollo missions to send astronauts to the Moon.
       The rocket had three stages, burned liquid fuel, and generated over 7.5 million pounds of thrust at liftoff.
@@ -89,18 +124,14 @@ function App() {
           width={32}
         />
       </div>
-      <div className="document-list">
-        <div className="search-panel">
-          <div className="flex-col p-07">
-            <span className="search-text">Search</span>
-            <span className="search-results-text">63 RESULTS</span>
-          </div>
-        </div>
-        <SearchResults
-          results={searchResults}
-          onSelectDocument={handleDocumentSelect}
-        />
-      </div>
+      <Section title="Search" subtitle="63 RESULTS">
+        <SectionCard padded={false}>
+          <SearchResults
+            results={searchResults}
+            onSelectDocument={handleDocumentSelect}
+          />
+        </SectionCard>
+      </Section>
       <DocumentContent
         title={selectedDocument?.title}
         modifiedDate={selectedDocument?.modifiedDate}
