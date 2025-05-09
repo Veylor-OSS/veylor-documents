@@ -1,7 +1,7 @@
 {
   "name": "veylor-documents",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@blueprintjs/core": "^5.5.0",
-    "@blueprintjs/datetime": "^5.2.3",
     "@blueprintjs/datetime2": "^2.2.0",
     "@blueprintjs/icons": "^5.2.1",
     "@blueprintjs/select": "^5.0.15",
